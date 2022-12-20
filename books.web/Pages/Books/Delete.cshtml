@@ -1,0 +1,90 @@
+﻿@page
+@model books.web.Pages.Books.DeleteModel
+@{
+}
+<h2>Delete Book</h2>
+
+<form method="post">
+
+    @if (@Model.errorMessage.Length > 0)
+    {
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+
+                    <strong>@Model.errorMessage</strong>
+                    <button type="button" class="btn-close" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">id</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="id" value="@Model.book.id" disabled />
+            <input type="hidden" name="idHidden" value="@Model.book.id" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="name" value="@Model.book.name" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Autor</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="autor" value="@Model.book.autor" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Pages</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="pages" value="@Model.book.pages" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Genre</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="genre" value="@Model.book.genre" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Year</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="year" value="@Model.book.year" />
+        </div>
+    </div>
+
+    @if (@Model.successMessage.Length > 0)
+    {
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+
+                    <strong>@Model.successMessage</strong>
+                    <button type="button" class="btn-close" data-dismiss="alert" aria-label="close">  </button>
+
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+        <div class="col-sm-3">
+            <a class="btn btn-outline-primary" href="/Books/Index" role="button">Cancel</a>
+        </div>
+
+    </div>
+
+</form>

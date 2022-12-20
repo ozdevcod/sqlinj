@@ -1,0 +1,40 @@
+﻿@page
+@model books.web.Pages.Books.IndexModel
+@{
+}
+
+<h2>Books</h2>
+
+<a class="btn btn-primary btn-sm" href="/Books/Create">Create Book</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>autor</th>
+            <th>pages</th>
+            <th>genre</th>
+            <th>year</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listalibros)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>@item.autor</td>
+                <td>@item.pages</td>
+                <td>@item.genre</td>
+                <td>@item.year</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Books/Edit?id=@item.id">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Books/Delete?id=@item.id">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table> 
+               
